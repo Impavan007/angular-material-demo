@@ -1,0 +1,68 @@
+:host {
+    display: block;
+    max-width: 400px;
+    margin: 2rem auto; /* Center horizontally and add vertical spacing */
+    padding: 1rem;
+    border-radius: 8px;
+    background: #f5f5f5;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-flex {
+    background: #fff;
+    border-radius: 4px;
+  }
+  
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-infix {
+    padding: 0 0.5rem;
+  }
+  
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-label {
+    color: #333;
+  }
+  
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-outline {
+    border-color: #ddd;
+  }
+  
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-outline .mat-form-field-outline-start {
+    border-color: #ddd;
+  }
+  
+  mat-form-field mat-error {
+    color: #f44336;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: #3f51b5;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #303f9f;
+  }
+  
+  button:disabled {
+    background-color: #9e9e9e;
+    cursor: not-allowed;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: #3f51b5;
+  }
+  

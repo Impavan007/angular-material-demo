@@ -1,0 +1,94 @@
+/* General Styles */
+form {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+  }
+  
+  /* Form Heading */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #2196f3;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Input Field Styles */
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+  
+  /* Floating Label Styles */
+  mat-form-field.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: #ffffff;
+  }
+  
+  /* Input and Select Styles */
+  mat-form-field mat-label {
+    font-size: 16px;
+    color: #2196f3;
+  }
+  
+  mat-form-field mat-input {
+    font-size: 16px;
+    color: #424242;
+  }
+  
+  /* Gender Radio Button Styles */
+  .gender-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  mat-radio-button {
+    font-size: 16px;
+  }
+  
+  /* Error Message Styles */
+  mat-error {
+    font-size: 14px;
+    color: #f44336;
+    margin-top: 4px;
+  }
+  
+  /* Button Styles */
+  button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4caf50;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    background-color: #2c6b2f;
+    transform: translateY(0);
+  }
+  
+  /* Datepicker and Select Styles */
+  mat-select {
+    width: 100%;
+  }
+  
+  mat-datepicker {
+    max-width: 100%;
+  }
+  

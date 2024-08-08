@@ -1,0 +1,44 @@
+/* Ensure the container takes full height of viewport */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Center the content within the container */
+  .container {
+    text-align: center;
+  }
+  
+  /* Style for the h1 element */
+  h1 {
+    font-size: 72px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Style for the p element */
+  p {
+    font-size: 24px;
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  /* Style for the button */
+  a.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  a.button:hover {
+    background-color: #0056b3;
+  }
+  

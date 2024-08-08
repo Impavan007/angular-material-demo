@@ -1,0 +1,105 @@
+/* Navbar Styles */
+.navbar {
+    background: #3f51b5; /* Main background color */
+    color: #fff; /* Text color */
+    padding: 0.5rem 1rem; /* Padding around the navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    display: flex; /* Flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Align items vertically */
+    position: relative; /* For positioning the toggle button */
+  }
+  
+  /* Container for navbar elements */
+  .navbar-container {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between logo and menu */
+    align-items: center; /* Align items vertically */
+    width: 100%; /* Full width */
+    max-width: 1200px; /* Maximum width */
+    margin: 0 auto; /* Center align */
+  }
+  
+  /* Logo styles */
+  .navbar-logo {
+    font-size: 1.8rem; /* Font size */
+    font-weight: bold; /* Font weight */
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  /* Menu styles */
+  .navbar-menu {
+    list-style: none; /* Remove bullet points */
+    display: flex; /* Flexbox for horizontal layout */
+    margin: 0; /* Remove margin */
+    padding: 0; /* Remove padding */
+  }
+  
+  /* Menu item styles */
+  .navbar-item {
+    margin: 0 1rem; /* Space between items */
+  }
+  
+  /* Link styles */
+  .navbar-link {
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1rem; /* Font size */
+    padding: 0.5rem; /* Padding around text */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Link hover styles */
+  .navbar-link:hover {
+    background-color: #303f9f; /* Background on hover */
+    color: #fff; /* Text color on hover */
+  }
+  
+  /* Toggle button styles */
+  .navbar-toggle {
+    display: none; /* Hide by default */
+    background: transparent; /* Transparent background */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    color: #fff; /* Text color */
+    font-size: 1.5rem; /* Font size */
+  }
+  
+  /* Responsive styles for smaller screens */
+  @media (max-width: 768px) {
+    /* Menu styles for mobile */
+    .navbar-menu {
+      display: none; /* Hide menu by default */
+      flex-direction: column; /* Vertical layout */
+      position: absolute; /* Absolute positioning */
+      top: 60px; /* Position below the navbar */
+      right: 0; /* Align to the right */
+      background: #3f51b5; /* Background color */
+      width: 100%; /* Full width */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+  
+    /* Show menu when active */
+    .navbar-menu.active {
+      display: flex; /* Show menu */
+    }
+  
+    /* Remove margin for mobile items */
+    .navbar-item {
+      margin: 0; /* Remove margin */
+    }
+  
+    /* Link styles for mobile */
+    .navbar-link {
+      padding: 1rem; /* Increased padding */
+      border-bottom: 1px solid #fff; /* Divider between items */
+    }
+  
+    /* Show toggle button on mobile */
+    .navbar-toggle {
+      display: block; /* Show button */
+    }
+  }
+  
