@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoginService {
-  private loginUrl = 'https://your-api-endpoint/login';  // Replace with your API endpoint
+  private loginUrl = 'http://10.26.32.98:4200/api/auth/signin';  // Replace with your API endpoint
 
   constructor(private http: HttpClient) {}
 

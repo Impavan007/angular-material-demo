@@ -43,10 +43,10 @@ export class SigninComponent {
       username: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
-      phoneNumber: ['', Validators.required],
+      phone: ['', Validators.required],
       gender: ['', Validators.required],
-      Role: ['', Validators.required],
-      dateOfBirth: ['', Validators.required]
+      user_role: ['', Validators.required],
+      dob: ['', Validators.required],
     });
   }
 
@@ -63,15 +63,15 @@ export class SigninComponent {
       formValue.dateOfBirth = this.formatDate(new Date(formValue.dateOfBirth));
       console.log(this.signupForm.value);
 
-      this.signupService.register(formValue).subscribe(
-        response => {
+      this.signupService.register(formValue).subscribe({
+        next: (response) => {
           console.log('User registered successfully:', response);
-          this.router.navigate(['/success']); // Navigate to a success page
+          this.router.navigate(['/']); // Navigate to a success page
         },
-        error => {
+        error: (error) => {
           console.error('Error registering user:', error);
         }
-      );
+      });
     }
   }
 }

@@ -5,12 +5,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SignupService {
-  private apiUrl = 'http://10.26.32.98:4200/api/auth/signup'; // Replace with your API URL
+export class UserService {
+  private apiUrl = 'http://10.26.32.98:4200/api/auth/home'; 
 
   constructor(private http: HttpClient) {}
 
-  register(userData: any): Observable<any> {
-    return this.http.post<any>(this.apiUrl, userData);
+  getUserData(email: string): Observable<any> {
+    return this.http.post<any>(this.apiUrl, { email });
   }
 }

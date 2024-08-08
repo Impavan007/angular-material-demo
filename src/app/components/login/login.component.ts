@@ -29,17 +29,18 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
+      username: ['', [Validators.required]],
       password: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
+      console.log(this.loginForm.value)
       this.loginService.login(this.loginForm.value).subscribe(
         response => {
           console.log('User logged in successfully:', response);
-          this.router.navigate(['/dashboard']);  // Navigate to a dashboard or another page
+          this.router.navigate(['/homepage']);  // Navigate to a dashboard or another page
         },
         error => {
           console.error('Error logging in:', error);
