@@ -1,24 +1,25 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
+import { UserService } from '../../services/user-service.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [MatInputModule,
-    MatFormFieldModule,
+  imports: [
+    MatInputModule,
+    MatFormFieldModule,   // This is required for mat-error to work
     MatButtonModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    CommonModule],
+    CommonModule
+  ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -26,6 +27,7 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
+    private userService: UserService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -36,11 +38,11 @@ export class LoginComponent {
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value)
       this.loginService.login(this.loginForm.value).subscribe(
         response => {
           console.log('User logged in successfully:', response);
-          this.router.navigate(['/homepage']);  // Navigate to a dashboard or another page
+          localStorage.setItem('userData', JSON.stringify(response));  // Save user data
+          this.router.navigate(['/homepage']);
         },
         error => {
           console.error('Error logging in:', error);
