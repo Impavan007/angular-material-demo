@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,19 +8,21 @@ import { Observable } from 'rxjs';
 export class UserService {
   private apiUrl = 'http://10.26.32.98:4200/api/auth/home'; 
 
-  private userData: any;  // Variable to store user data
-
   constructor(private http: HttpClient) {}
 
-  getUserData(email: string): Observable<any> {
-    return this.http.post<any>(this.apiUrl, { email });
-  }
+  getUserData(): Observable<any> {
+    const token = localStorage.getItem('sessionToken');
+    if (!token) {
+      throw new Error('No session token found');
+    }
 
-  setUserData(data: any): void {
-    this.userData = data;
-  }
+    // Set headers including the token
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    console.log(headers)
 
-  getUserDataFromCache(): any {
-    return this.userData;
+    // If the API requires a POST request, adjust accordingly
+    return this.http.post<any>(this.apiUrl, {}, { headers });
   }
 }

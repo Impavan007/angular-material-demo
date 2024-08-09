@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
-import { UserService } from '../../services/user-service.service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -27,7 +26,6 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private loginService: LoginService,
-    private userService: UserService,
     private router: Router
   ) {
     this.loginForm = this.fb.group({
@@ -41,8 +39,19 @@ export class LoginComponent {
       this.loginService.login(this.loginForm.value).subscribe(
         response => {
           console.log('User logged in successfully:', response);
-          localStorage.setItem('userData', JSON.stringify(response));  // Save user data
-          this.router.navigate(['/homepage']);
+
+          // Save only the session token from the response
+          const token = response.token; // Extract the token from the response
+          if (token) {
+            localStorage.setItem('sessionToken', token); 
+
+            // Check if the token is successfully stored and navigate
+            if (localStorage.getItem('sessionToken')) {
+              this.router.navigate(['/homepage']);
+            } else {
+              this.router.navigate(['/']);
+            }
+          }
         },
         error => {
           console.error('Error logging in:', error);

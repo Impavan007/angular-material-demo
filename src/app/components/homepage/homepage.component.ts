@@ -39,25 +39,23 @@ export class HomepageComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const userData = localStorage.getItem('userData');
-
-    if (userData) {
-      const parsedData = JSON.parse(userData);
-      this.user = {
-        name: parsedData.username || '',
-        contactNumber: parsedData.phone || '',
-        age: this.calculateAge(parsedData.dob),
-        profilePic: 'images.jfif',
-        coverImage: 'images.jfif',
-        posts: [
-          { title: 'First project', content: 'This is the content of the first post.' },
-          { title: 'Second project', content: 'This is the content of the second post.' }
-        ],
-        user_role: parsedData.user_role || ''
-      };
-    } else {
-      console.log('User not found');
-    }
+    this.userService.getUserData().subscribe(
+      response => {
+        console.log('User data retrieved successfully:', response);
+        this.user = {
+          name: response.username || '',
+          contactNumber: response.phone || '',
+          age: this.calculateAge(response.dob),
+          profilePic: 'images.jfif',  // Placeholder image
+          coverImage: 'images.jfif',  // Placeholder image
+          posts: response.posts || [], // Assuming posts are included in the response
+          user_role: response.user_role || ''
+        };
+      },
+      error => {
+        console.error('Error retrieving user data:', error);
+      }
+    );
   }
 
   calculateAge(dob: string): number {
